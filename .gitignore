@@ -1,0 +1,50 @@
+# IDE and operating-system files
+.idea/
+.vs/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Android / Gradle outputs and local configuration
+.gradle/
+**/build/
+local.properties
+*.apk
+*.aab
+
+# .NET outputs
+**/bin/
+**/obj/
+
+# Frontend outputs
+**/node_modules/
+windows/ui/dist/
+*.tsbuildinfo
+
+# Generated runtime dependencies and release packages
+/APPS/
+windows/tools/
+windows/android/
+installer/prerequisites/
+FINAL_RELEASE/
+FINAL_SETUP_VALIDATION/
+*.zip
+
+# Signing secrets and private identities
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.key
+*.pem
+signing.properties
+*.signing.properties
+.env
+PRIVATE/
+
+# Runtime captures and temporary files
+diagnostics/
+*.log
+*.pid
+*.tmp
+*.user

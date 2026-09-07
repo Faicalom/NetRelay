@@ -1,0 +1,14 @@
+import type { AndroidActionState, BridgeCommand, ConnectionSnapshot } from '../bridge/types'
+import type { TranslationTable } from '../i18n'
+import { Icon } from './Icon'
+import { DetailGroup, DetailRow } from './DetailRow'
+import { TransportStateBadge } from './TransportStateBadge'
+import { UsbActions } from './UsbActions'
+export function UsbDetailsPanel({ connection, t, busyCommand, androidAction, run, onDisconnect }: { connection: ConnectionSnapshot; t: TranslationTable; busyCommand: BridgeCommand | null; androidAction: AndroidActionState; run: (command: BridgeCommand, payload?: Record<string, unknown>) => Promise<boolean>; onDisconnect: () => void }) {
+  const transport = connection.transports.find((item) => item.key === 'usb')!
+  const error = connection.uiState === 'error' && connection.selectedTransport === 'usb'
+  const state = (value: string) => value === 'connected' || value === 'ready' || value === 'enabled' || value === 'authorized' ? t.enabled : value === 'unauthorized' ? t.approvalRequired : value === 'offline' ? t.offline : value === 'notFound' ? t.notFound : value === 'disconnected' || value === 'disabled' ? t.disabled : t.unavailable
+  const warning = connection.usb.adbStatus === 'unauthorized' ? t.usbAuthorizeHint : connection.usb.adbStatus === 'notFound' || connection.usb.cableStatus === 'disconnected' ? t.usbCableHint : ''
+  const row = (label: string, value?: string, technical = false) => <DetailRow label={label} value={value} technical={technical} unavailableLabel={t.unavailable} showLabel={t.show} hideLabel={t.hide} copyLabel={t.copy} />
+  return <section className="panel transport-details-panel"><header className="transport-details-header"><span className="transport-details-icon"><Icon name="usb" /></span><div><span className="eyebrow">USB / ADB</span><h2>{t.usbDetails}</h2></div><TransportStateBadge state={transport.state} t={t} /></header>{error && <p className="context-error">{t.usbConnectFailed} {connection.statusMessage}</p>}{warning && <p className="context-warning">{warning}</p>}<UsbActions connection={connection} t={t} busyCommand={busyCommand} androidAction={androidAction} run={run} onDisconnect={onDisconnect} /><DetailGroup title={t.device}>{row(t.usbCable, state(connection.usb.cableStatus))}{row(t.usbDebugging, state(connection.usb.debuggingStatus))}{row('ADB', state(connection.usb.adbStatus))}{row(t.adbAuthorization, state(connection.usb.authorization))}{row(t.device, connection.usb.deviceName)}{row(t.deviceId, connection.usb.deviceId, true)}</DetailGroup><DetailGroup title={t.dataPath}>{row(t.controlChannel, connection.usb.controlEndpoint, true)}{row(t.ael2Gateway, connection.usb.gatewayEndpoint, true)}{row('SOCKS', connection.endpoints.socks, true)}{row(t.adapter, connection.adapter.running ? t.active : t.inactive)}{row(t.internet, connection.internet.available ? t.connected : t.disconnected)}</DetailGroup></section>
+}

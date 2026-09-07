@@ -1,0 +1,16 @@
+* text=auto
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.sln text eol=crlf
+*.cs text eol=crlf
+*.xaml text eol=crlf
+*.kt text eol=lf
+*.kts text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.css text eol=lf
+*.md text eol=lf
+*.png binary
+*.ico binary
+*.jar binary

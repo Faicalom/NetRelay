@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\src\Services\NetRelayGatewayClient.cs" Link="NetRelayGatewayClient.cs" />
+    <Compile Include="..\..\src\Services\FlowDeliveryLane.cs" Link="FlowDeliveryLane.cs" />
+    <Compile Include="..\..\src\Services\GatewayLivenessState.cs" Link="GatewayLivenessState.cs" />
+    <Compile Include="..\..\src\Services\GatewayOutboundWriter.cs" Link="GatewayOutboundWriter.cs" />
+    <Compile Include="..\..\src\Services\GatewayProtocol.cs" Link="GatewayProtocol.cs" />
+    <Compile Include="..\..\src\Utils\Logger.cs" Link="Logger.cs" />
+  </ItemGroup>
+</Project>

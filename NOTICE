@@ -1,0 +1,14 @@
+Net Relay
+Copyright (c) 2026 Net Relay contributors.
+
+This repository is distributed under the MIT License. See LICENSE.
+
+Third-party components and notices:
+
+- Android SDK Platform-Tools / ADB — Android Open Source Project; Apache License 2.0 and component-specific notices.
+- tun2socks v2.6.0 — xjasonlyu/tun2socks; MIT License.
+- Wintun 0.14.1 — WireGuard LLC; use and redistribution are subject to the official distribution terms.
+- Microsoft Edge WebView2 Runtime — Microsoft license terms.
+- React, Vite, TypeScript, Microsoft.Web.WebView2, System.Reactive, AndroidX, Kotlin coroutines, Google Play services Nearby, and Material Components — see their package metadata and upstream license terms.
+
+Distributors must retain applicable upstream notices and license terms.

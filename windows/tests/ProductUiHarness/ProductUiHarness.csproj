@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net8.0-windows</TargetFramework><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable></PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\src\Models\AppNotification.cs" Link="AppNotification.cs" />
+    <Compile Include="..\..\src\Models\ApplicationSettings.cs" Link="ApplicationSettings.cs" />
+    <Compile Include="..\..\src\Services\NotificationCenterService.cs" Link="NotificationCenterService.cs" />
+    <Compile Include="..\..\src\Services\AppSettingsService.cs" Link="AppSettingsService.cs" />
+  </ItemGroup>
+</Project>

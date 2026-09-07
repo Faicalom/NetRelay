@@ -1,0 +1,409 @@
+.app-shell {
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.selectable,
+.technical-value,
+.log-table,
+.log-table *,
+input,
+textarea {
+  cursor: text;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+img,
+svg {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
+.connection-page {
+  display: grid;
+  grid-template-columns: minmax(290px, .72fr) minmax(480px, 1.28fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.transport-selector-panel {
+  position: sticky;
+  inset-block-start: 96px;
+}
+
+.panel-hint {
+  margin: -4px 0 17px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.transport-card--selected:not(.transport-card--active) {
+  border-color: rgba(40, 216, 235, .38);
+  background: linear-gradient(135deg, rgba(40, 216, 235, .11), rgba(40, 216, 235, .035));
+  box-shadow: inset 3px 0 var(--accent);
+}
+
+html[dir="rtl"] .transport-card--selected:not(.transport-card--active) {
+  box-shadow: inset -3px 0 var(--accent);
+}
+
+.transport-details-panel {
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.transport-details-header {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 22px 18px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(40, 216, 235, .055), transparent 60%);
+}
+
+.transport-details-header h2 {
+  margin: 5px 0 0;
+  font-size: 22px;
+}
+
+.transport-details-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  background: rgba(40, 216, 235, .09);
+  color: var(--accent);
+}
+
+.transport-details-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.transport-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.transport-badge i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.transport-badge--active { color: var(--success); border-color: rgba(69, 233, 154, .25); }
+.transport-badge--connecting { color: var(--accent); border-color: rgba(40, 216, 235, .28); }
+.transport-badge--connecting i { animation: pulse 1s infinite; }
+.transport-badge--error { color: var(--error); border-color: rgba(255, 104, 123, .25); }
+
+.detail-group {
+  margin: 0 22px;
+  padding: 20px 0 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-group:last-of-type {
+  border-bottom: 0;
+}
+
+.detail-group h3 {
+  margin: 0 0 8px;
+  color: var(--faint);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.detail-group dl {
+  margin: 0;
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: minmax(120px, .72fr) minmax(0, 1.28fr);
+  gap: 20px;
+  align-items: center;
+  min-height: 42px;
+  padding: 8px 0;
+}
+
+.detail-row dt {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.detail-row dd {
+  min-width: 0;
+  margin: 0;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.detail-value--unavailable {
+  color: var(--faint);
+}
+
+.copy-value {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  min-width: 0;
+}
+
+.copy-value b {
+  min-width: 0;
+  overflow: hidden;
+  color: #dff7ff;
+  font-family: Consolas, "Segoe UI", monospace;
+  font-size: 12px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  unicode-bidi: isolate;
+}
+
+.micro-button {
+  display: grid;
+  place-items: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--faint);
+}
+
+.micro-button:hover {
+  border-color: var(--border);
+  background: rgba(255, 255, 255, .035);
+  color: var(--accent);
+}
+
+.micro-button svg { width: 14px; height: 14px; }
+
+.context-warning,
+.context-error {
+  margin: 16px 22px 0;
+  padding: 11px 13px;
+  border-radius: 11px;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.operation-section {
+  margin: 18px 22px 4px;
+  padding: 18px;
+  border: 1px solid rgba(40, 216, 235, .16);
+  border-radius: 15px;
+  background: rgba(3, 14, 24, .38);
+}
+
+.operation-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.operation-heading h3,
+.live-details-title h3 {
+  margin: 5px 0 0;
+  font-size: 16px;
+}
+
+.operation-note {
+  max-width: 250px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.field-label {
+  display: grid;
+  min-width: 0;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.operation-input {
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: 0;
+  background: rgba(4, 13, 22, .72);
+  color: var(--text);
+}
+
+.operation-input:focus {
+  border-color: rgba(40, 216, 235, .52);
+  box-shadow: 0 0 0 3px rgba(40, 216, 235, .07);
+}
+
+.operation-input:disabled {
+  opacity: .58;
+}
+
+select.operation-input {
+  cursor: pointer;
+}
+
+.network-selector-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 10px;
+}
+
+.refresh-networks {
+  min-width: 102px;
+}
+
+.wifi-credentials-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, .62fr);
+  align-items: end;
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.password-field {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 34px 34px;
+  align-items: center;
+  gap: 5px;
+}
+
+.profile-state {
+  display: grid;
+  gap: 4px;
+  min-height: 58px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, .025);
+  color: var(--muted);
+}
+
+.profile-state--saved {
+  border-color: rgba(69, 233, 154, .24);
+  background: rgba(69, 233, 154, .055);
+  color: var(--success);
+}
+
+.profile-state strong { font-size: 11px; }
+.profile-state small { color: var(--faint); line-height: 1.45; }
+
+.action-grid {
+  display: grid;
+  gap: 9px;
+  margin-top: 15px;
+}
+
+.action-grid--usb,
+.action-grid--wifi {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.action-grid .button {
+  min-width: 0;
+  padding-inline: 10px;
+  font-size: 11px;
+}
+
+.action-grid .button--danger {
+  margin-top: 0;
+}
+
+.password-privacy {
+  margin: 11px 0 0;
+  color: var(--faint);
+  font-size: 10px;
+}
+
+.live-details-title {
+  margin: 22px 22px 0;
+}
+
+.context-warning {
+  border: 1px solid rgba(255, 199, 102, .2);
+  background: rgba(255, 199, 102, .065);
+  color: #ffd99a;
+}
+
+.context-error {
+  border: 1px solid rgba(255, 104, 123, .2);
+  background: rgba(255, 104, 123, .065);
+  color: #ff9ca9;
+}
+
+.transport-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 18px 22px 22px;
+}
+
+.transport-actions .button--danger {
+  margin-top: 0;
+}
+
+@media (max-width: 1080px) {
+  .connection-page { grid-template-columns: 1fr; }
+  .transport-selector-panel { position: static; }
+}
+
+@media (max-width: 620px) {
+  .transport-details-header { grid-template-columns: 44px minmax(0, 1fr); padding: 18px; }
+  .transport-details-icon { width: 44px; height: 44px; }
+  .transport-badge { grid-column: 1 / -1; width: max-content; }
+  .detail-group { margin-inline: 18px; }
+  .detail-row { grid-template-columns: 1fr; gap: 4px; }
+  .transport-actions { flex-direction: column-reverse; padding-inline: 18px; }
+  .transport-actions .button { width: 100%; }
+  .operation-section { margin-inline: 14px; padding: 14px; }
+  .operation-heading { display: grid; }
+  .network-selector-row,
+  .wifi-credentials-grid,
+  .action-grid--usb,
+  .action-grid--wifi { grid-template-columns: 1fr; }
+  .refresh-networks,
+  .action-grid .button { width: 100%; }
+}
+
+@media (min-width: 621px) and (max-width: 1250px) {
+  .action-grid--usb,
+  .action-grid--wifi { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wifi-credentials-grid { grid-template-columns: 1fr; }
+}
